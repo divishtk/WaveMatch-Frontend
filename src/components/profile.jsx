@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import ProfileUpdate from "./profileUpdate";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
-  return (
-    <div>profile</div>
-  )
-}
+  const getLoggedInUser = useSelector((state) => state.user);
 
-export default Profile
+  return (
+    getLoggedInUser && (
+      <>
+        <div>
+          <ProfileUpdate user={getLoggedInUser} />
+        </div>
+      </>
+    )
+  );
+};
+
+export default Profile;

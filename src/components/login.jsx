@@ -54,7 +54,7 @@ const Login = () => {
             />
             <p className="">{error}</p>
             <div className="card-actions justify-end mt-3">
-              <button className="btn btn-primary" onClick={loginApiCall}>
+              <button className="btn btn-primary rounded-md" onClick={loginApiCall}>
                 Log In
               </button>
             </div>
