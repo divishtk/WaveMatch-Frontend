@@ -30,9 +30,9 @@ const YourConnections = () => {
     <div className="text-center my-10">
       <h1 className="text-bold text-2xl">Your Connections!</h1>
       {connections.map((conn) => {
-        const { firstName, gender, lastName, age, pic, about } = conn;
+        const { firstName, gender, lastName, age, pic, about , _id} = conn;
         return (
-          <ul className="list bg-base-100 rounded-box shadow-md w-90 text-center m-auto my-3">
+          <ul className="list bg-base-100 rounded-box shadow-md w-90 text-center m-auto my-3" key={_id}>
             <li className="list-row">
               <div>
                 <img className="size-10 rounded-box" src={pic} />

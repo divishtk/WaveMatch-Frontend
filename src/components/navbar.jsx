@@ -39,8 +39,8 @@ const NavBar = () => {
       </div>
       <div className="flex-none">
         {user && (
-          <div className="dropdown dropdown-end mx-5 gap-3 flex items-center">
-            <p className="px-2 text-neutral-content">Welcome, {user.firstName}</p>
+          <div className="dropdown dropdown-end mx-5 gap-3 flex">
+            <p className="px-2 text-neutral-content my-3">Welcome, {user.firstName}</p>
             <div
               tabIndex={0}
               role="button"
