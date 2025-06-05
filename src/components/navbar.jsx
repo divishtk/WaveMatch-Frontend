@@ -59,9 +59,9 @@ const NavBar = () => {
                   Profile
                 </Link>
               </li>
-              {/* <li>
-                <a>Settings</a>
-              </li> */}
+              <li>
+                <Link to="/yourAcceptedConnections">Connections</Link>
+              </li>
               <li>
                 <a onClick={logoutUser}>Logout</a>
               </li>
