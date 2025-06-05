@@ -47,7 +47,7 @@ const ProfileUpdate = ({ user }) => {
   };
 
   return (
-    <div className="flex justify-center gap-5 my-10">
+    <div className="flex items-center justify-center gap-5 my-10 ">
       <div className="flex justify-center mx-10">
         <div className="flex justify-center my-15">
           <div className="card bg-base-200 w-96 shadow-sm">
