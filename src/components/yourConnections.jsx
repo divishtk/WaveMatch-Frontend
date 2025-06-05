@@ -32,11 +32,6 @@ const YourConnections = () => {
       {connections.map((conn) => {
         const { firstName, gender, lastName, age, pic, about } = conn;
         return (
-          // <div className="m-4 p-4 border rounded-md items-center">
-          // <img src={pic} alt="photo" className="w-20 h-20" />
-          // <h2>{firstName+ "" +lastName}</h2>
-          // <p>{about}</p>
-          //  </div>
           <ul className="list bg-base-100 rounded-box shadow-md w-90 text-center m-auto my-3">
             <li className="list-row">
               <div>
