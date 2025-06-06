@@ -2,11 +2,25 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addReceivedRequests } from "../utils/receivedRequestSlice";
+import { addReceivedRequests, removeReceivedReq } from "../utils/receivedRequestSlice";
 
 const ReceivedRequest = () => {
   const dispatch = useDispatch();
   const reqReceived = useSelector((state) => state.receivedRequests);
+
+  const reviewRequest = async (status, _id) => {
+    try {
+        const resp = await axios.post(
+          BASE_URL + "/request/review/" + status + "/" + _id ,{} ,{
+            withCredentials: true
+          }
+        );
+        dispatch(removeReceivedReq(_id))
+    } catch (error) {
+            console.log("Error while reviewing request",error.message)
+    }
+  };
+
   const getReceivedRequests = async () => {
     try {
       const resp = await axios.get(BASE_URL + "/user/requests/received", {
@@ -23,7 +37,7 @@ const ReceivedRequest = () => {
   }, []);
 
   if (!reqReceived) return;
-  if (reqReceived.length === 0) return <h2>No Request as of now!</h2>;
+  if (reqReceived.length === 0) return <h2 className="text-bold text-2xl text-center my-5">No Request as of now!</h2>;
 
   return (
     <>
@@ -68,9 +82,13 @@ const ReceivedRequest = () => {
                   </svg>
                 </button>
               </li>
-                  <div className="card-actions flex justify-center gap-5">
-                <div className="btn btn-outline btn-primary rounded-md my-3">Accept</div>
-                <div className="btn btn-outline btn-error rounded-md my-3">Reject</div>
+              <div className="card-actions flex justify-center gap-5">
+                <div className="btn btn-outline btn-primary rounded-md my-3" onClick={()=>reviewRequest("accepted",conn._id )}>
+                  Accept
+                </div>
+                <div className="btn btn-outline btn-error rounded-md my-3" onClick={()=>reviewRequest("rejected",conn._id )}>
+                  Reject
+                </div>
               </div>
             </ul>
           );
